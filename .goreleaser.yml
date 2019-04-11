@@ -1,0 +1,28 @@
+builds:
+  - flags: -tags netgo
+    goos:
+      - linux
+      - darwin
+      - freebsd
+      - openbsd
+      - netbsd
+      - dragonfly
+    goarch:
+      - amd64
+      - 386
+      - arm
+      - arm64
+      - ppc64
+      - ppc64le
+release:
+  draft: true
+  prerelease: true
+#dockers:
+#  - image: ncabatoff/json2prom
+#    dockerfile: Dockerfile.goreleaser
+#    binary: json2prom
+#    goos: linux
+#    goarch: amd64
+#    tag_templates:
+#      - latest
+#      - "{{ .Version }}"

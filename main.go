@@ -70,22 +70,22 @@ func getConfig(content string) ([]Indexer, error) {
 }
 
 func main() {
-	cfg := `
-- name: vault_replication_status
-  key: data
-  contains:
-  - label: replicationType
-    key: '*'
-    metrics:
-    - value: last_reindex_epoch
-      labels: [mode]
-    - value: last_wal
-      labels: [mode]
-    - value: last_remote_wal
-      labels: [mode]
-    - labels: [mode, cluster_id, state, known_secondaries, primary_cluster_addr, known_primary_cluster_addrs]
-`
-	indexers, err := getConfig(cfg)
+	//	cfg := `
+	//- name: vault_replication_status
+	//  key: data
+	//  contains:
+	//  - label: replicationType
+	//    key: '*'
+	//    metrics:
+	//    - value: last_reindex_epoch
+	//      labels: [mode]
+	//    - value: last_wal
+	//      labels: [mode]
+	//    - value: last_remote_wal
+	//      labels: [mode]
+	//    - labels: [mode, cluster_id, state, known_secondaries, primary_cluster_addr, known_primary_cluster_addrs]
+	//`
+	indexers, err := getConfig(os.Args[1])
 	if err != nil {
 		log.Fatal(err)
 	}
